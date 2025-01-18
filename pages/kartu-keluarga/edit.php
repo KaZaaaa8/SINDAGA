@@ -18,7 +18,7 @@ $result = mysqli_stmt_get_result($stmt);
 $data = mysqli_fetch_assoc($result);
 
 // Query untuk dropdown wilayah
-$query_wilayah = "SELECT id, nama_wilayah, level_wilayah FROM wilayah ORDER BY level_wilayah, nama_wilayah";
+$query_wilayah = "SELECT id, nama_wilayah FROM wilayah ORDER BY  nama_wilayah";
 $result_wilayah = mysqli_query($koneksi, $query_wilayah);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -7,30 +7,43 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$id = $_GET['id'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-// Cek apakah wilayah memiliki child
-$query_check = "SELECT COUNT(*) as total FROM wilayah WHERE id_parent = ?";
-$stmt_check = mysqli_prepare($koneksi, $query_check);
-mysqli_stmt_bind_param($stmt_check, "i", $id);
-mysqli_stmt_execute($stmt_check);
-$result_check = mysqli_stmt_get_result($stmt_check);
-$data_check = mysqli_fetch_assoc($result_check);
+    // Begin transaction
+    mysqli_begin_transaction($koneksi);
 
-if ($data_check['total'] > 0) {
-    header("Location: index.php?error=1");
-    exit();
+    try {
+        // Check if wilayah is used in kartu_keluarga
+        $check_kk = "SELECT COUNT(*) as total FROM kartu_keluarga WHERE id_wilayah = ?";
+        $stmt = mysqli_prepare($koneksi, $check_kk);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $count = mysqli_fetch_assoc($result)['total'];
+
+        if ($count > 0) {
+            throw new Exception("Tidak dapat menghapus wilayah karena masih digunakan dalam data kartu keluarga");
+        }
+
+        // Delete the wilayah
+        $query = "DELETE FROM wilayah WHERE id = ?";
+        $stmt = mysqli_prepare($koneksi, $query);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_commit($koneksi);
+            header("Location: index.php?success=3");
+            exit();
+        } else {
+            throw new Exception(mysqli_error($koneksi));
+        }
+    } catch (Exception $e) {
+        mysqli_rollback($koneksi);
+        header("Location: index.php?error=" . urlencode($e->getMessage()));
+        exit();
+    }
 }
 
-// Hapus wilayah
-$query = "DELETE FROM wilayah WHERE id = ?";
-$stmt = mysqli_prepare($koneksi, $query);
-mysqli_stmt_bind_param($stmt, "i", $id);
-
-if (mysqli_stmt_execute($stmt)) {
-    header("Location: index.php?success=3");
-} else {
-    header("Location: index.php?error=2");
-}
+header("Location: index.php");
 exit();
-?>

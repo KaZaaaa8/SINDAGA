@@ -36,11 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status_kawin = $_POST['status_kawin'];
     $pekerjaan = mysqli_real_escape_string($koneksi, $_POST['pekerjaan']);
     $status_keluarga = $_POST['status_keluarga'];
+    $status = $_POST['status'] ?? 'MENETAP';
 
     $query = "UPDATE penduduk SET 
               nik = ?, id_kk = ?, nama_lengkap = ?, tempat_lahir = ?, 
               tanggal_lahir = ?, jenis_kelamin = ?, agama = ?, 
-              status_kawin = ?, pekerjaan = ?, status_keluarga = ?
+              status_kawin = ?, pekerjaan = ?, status_keluarga = ?,
+              status = ?
               WHERE id = ?";
 
     $stmt = mysqli_prepare($koneksi, $query);
@@ -57,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $status_kawin,
         $pekerjaan,
         $status_keluarga,
+        $status,
         $id
     );
 
@@ -65,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 }
+
 ?>
 
 <!DOCTYPE html>
