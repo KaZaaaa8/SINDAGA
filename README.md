@@ -34,7 +34,6 @@ SINDAGA adalah sistem informasi manajemen data kependudukan berbasis web yang di
 - Multi-level user (Admin & Petugas).
 - Manajemen akses.
 - Profil pengguna.
-- Log aktivitas.
 
 ### 6. Database Tools
 - Backup database.
