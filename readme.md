@@ -34,7 +34,6 @@ SINDAGA adalah sistem informasi manajemen data kependudukan berbasis web yang di
 - Multi-level user (Admin & Petugas).
 - Manajemen akses.
 - Profil pengguna.
-- Log aktivitas.
 
 ### 6. Database Tools
 - Backup database.
@@ -93,9 +92,6 @@ SINDAGA/
 ## 🚀 Penggunaan
 
 ### 1. Login Sistem
-Admin default:
-- **Username**: `admin`
-- **Password**: `admin123`
 
 ### 2. Manajemen Data
 #### Data Penduduk

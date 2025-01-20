@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../config/config.php';
+?>
+
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 <header class="bg-dark-200 border-b border-dark-300">
@@ -47,12 +51,12 @@
                         x-transition:enter="transition ease-out duration-100"
                         x-transition:enter-start="transform opacity-0 scale-95"
                         x-transition:enter-end="transform opacity-100 scale-100">
-                        <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>pages/auth/profile.php"
+                        <a href="<?= $base_url ?>/pages/auth/profile.php"
                             class="block px-4 py-2 text-sm text-gray-300 hover:bg-dark-300">
                             Profil Saya
                         </a>
                         <div class="border-t border-dark-300"></div>
-                        <a href="<?= str_repeat('../', substr_count($_SERVER['PHP_SELF'], '/') - 1) ?>pages/auth/logout.php"
+                        <a href="<?= $base_url ?>/pages/auth/logout.php"
                             class="block px-4 py-2 text-sm text-rose-400 hover:bg-dark-300">
                             Keluar
                         </a>

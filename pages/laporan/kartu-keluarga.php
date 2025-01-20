@@ -232,7 +232,7 @@ $nama_bulan = [
                                            transition-colors duration-200">
                                     Tampilkan
                                 </button>
-                                <a href="kk.php"
+                                <a href="kartu-keluarga.php"
                                     class="px-6 py-3 bg-dark-300 text-gray-300 rounded-lg hover:bg-dark-100 
                                           transition-colors duration-200">
                                     Reset

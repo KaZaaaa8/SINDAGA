@@ -1,5 +1,5 @@
 <?php
-// Get current page path and section
+require_once __DIR__ . '/../config/config.php';
 $current_path = $_SERVER['PHP_SELF'];
 $current_section = explode('/', $current_path)[2] ?? '';
 ?>
@@ -9,7 +9,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
         <!-- Main Navigation -->
         <div class="space-y-2">
             <!-- Dashboard -->
-            <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>index.php"
+            <a href="<?= $base_url ?>/index.php"
                 class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                       <?= $current_section == '' || $current_section == 'index.php' ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                 <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Data Management</p>
 
                 <!-- Data Penduduk -->
-                <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/penduduk/index.php"
+                <a href="<?= $base_url ?>/pages/penduduk/index.php"
                     class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                           <?= $current_section == 'penduduk' ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                 </a>
 
                 <!-- Kartu Keluarga -->
-                <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/kartu-keluarga/index.php"
+                <a href="<?= $base_url ?>/pages/kartu-keluarga/index.php"
                     class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                           <?= $current_section == 'kartu-keluarga' ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                 </a>
 
                 <!-- RT -->
-                <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/wilayah/index.php"
+                <a href="<?= $base_url ?>/pages/wilayah/index.php"
                     class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                           <?= $current_section == 'wilayah' ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +59,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                 <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Laporan</p>
 
                 <!-- Laporan Penduduk -->
-                <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/laporan/penduduk.php"
+                <a href="<?= $base_url ?>/pages/laporan/penduduk.php"
                     class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                           <?= $current_section == 'laporan' && strpos($current_path, 'penduduk.php') ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,7 +69,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                 </a>
 
                 <!-- Laporan KK -->
-                <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/laporan/kartu-keluarga.php"
+                <a href="<?= $base_url ?>/pages/laporan/kartu-keluarga.php"
                     class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                           <?= $current_section == 'laporan' && strpos($current_path, 'kartu-keluarga.php') ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,7 +85,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                     <p class="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Administrator</p>
 
                     <!-- Pengguna -->
-                    <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/pengguna/index.php"
+                    <a href="<?= $base_url ?>/pages/pengguna/index.php"
                         class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                               <?= $current_section == 'pengguna' ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ $current_section = explode('/', $current_path)[2] ?? '';
                     </a>
 
                     <!-- Database -->
-                    <a href="<?= str_repeat('../', substr_count($current_path, '/') - 1) ?>pages/database/index.php"
+                    <a href="<?= $base_url ?>/pages/database/index.php"
                         class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg transition-colors duration-200
                               <?= $current_section == 'database' ? 'bg-indigo-500/10 text-indigo-400' : 'text-gray-400 hover:bg-dark-300 hover:text-white' ?>">
                         <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
