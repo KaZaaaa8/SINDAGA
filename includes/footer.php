@@ -12,15 +12,15 @@
 
             <!-- Links -->
             <div class="flex items-center space-x-6">
-                <a href="#" class="text-sm text-gray-400 hover:text-gray-300 transition-colors">
+                <a href="<?= $base_url ?>/pages/panduan/index.php" class="text-sm text-gray-400 hover:text-gray-300 transition-colors">
                     Panduan
                 </a>
-                <a href="#" class="text-sm text-gray-400 hover:text-gray-300 transition-colors">
+                <a href="<?= $base_url ?>/pages/kebijakan-privasi/index.php" class="text-sm text-gray-400 hover:text-gray-300 transition-colors">
                     Kebijakan Privasi
                 </a>
                 <div class="flex items-center space-x-2">
                     <span class="text-sm text-gray-400">Versi</span>
-                    <span class="px-2 py-1 text-xs font-medium text-indigo-400 bg-indigo-500/10 rounded-full">1.0.0</span>
+                    <span class="px-2 py-1 text-xs font-medium text-indigo-400 bg-indigo-500/10 rounded-full">1.1.0</span>
                 </div>
             </div>
         </div>
