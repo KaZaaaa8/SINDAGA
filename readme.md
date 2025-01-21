@@ -91,10 +91,6 @@ SINDAGA/
 
 ### Login Sistem
 
-- Admin default:
-  - **Username**: `admin`
-  - **Password**: `admin123`
-
 ### Manajemen Data
 
 1. **Data Penduduk**
