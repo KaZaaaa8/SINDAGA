@@ -120,7 +120,6 @@ if (!isset($_SESSION['user_id'])) {
                         </div>
                     </div>
 
-
                     <!-- Template for additional letter types -->
                     <div class="bg-dark-200 rounded-xl border border-dark-300 overflow-hidden opacity-50">
                         <div class="p-6">
