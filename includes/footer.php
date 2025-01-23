@@ -20,7 +20,7 @@
                 </a>
                 <div class="flex items-center space-x-2">
                     <span class="text-sm text-gray-400">Versi</span>
-                    <span class="px-2 py-1 text-xs font-medium text-indigo-400 bg-indigo-500/10 rounded-full">1.1.0</span>
+                    <span class="px-2 py-1 text-xs font-medium text-indigo-400 bg-indigo-500/10 rounded-full">1.2.0</span>
                 </div>
             </div>
         </div>
